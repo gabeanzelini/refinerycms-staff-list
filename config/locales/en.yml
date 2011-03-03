@@ -1,0 +1,36 @@
+en:
+  plugins:
+    refinerycms_staff_lists:
+      title: Staff List
+      description: Provides a simple staff member section
+  admin:
+    staff_members:
+      staff_member:
+        view_live_html: "View this staff member live <br/><em>(opens in a new window)</em>"
+        edit: "Edit this staff member"
+        delete: "Remove this staff member forever"
+      index:
+        actions: Actions
+        create: "Add Staff Member"
+        staff_member: Staff Members
+        no_items: "Sorry, no results found."
+        no_items_yet: 'There are no staff members yet. Click "Add Staff Member" to add your first staff member.'
+  staff_members:
+    show:
+      back_to_index: "Back to all staff members"
+    index:
+      read_more: Read more
+      no_items_yet: There are no staff members yet.
+  activerecord:
+    attributes:
+      staff_member:
+        name: Name
+        title: Title
+        bio: Bio
+        image: &image Image
+    models:
+      staff_member: Staff Member
+  shared:
+    admin:
+      image_picker:
+        image: *image

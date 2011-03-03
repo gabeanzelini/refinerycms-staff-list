@@ -1,0 +1,26 @@
+<% content_for :body_content_title do %>
+  <%= t('plugins.refinerycms_staff_lists.title') %>
+<% end %>
+
+<% content_for :body_content_left do %>
+  <%= @page[:body] if @staff_members.offset == 0 %>
+
+  <% if @staff_members.any? %>
+    <% @staff_members.each do |item| %>
+      <article class="staff_member_truncated">
+      <%= image_tag item.image.thumbnail('175x175').url %>
+        <h3><%= item.name %></h3>
+        <p>
+          <small><%= item.title %></small>
+        </p>
+        <%= item.bio %>
+      </article>
+    <% end %>
+
+    <%= will_paginate(@staff_members) %>
+  <% else %>
+    <p><em><%= t('.no_items_yet') %></em></p>
+  <% end %>
+<% end -%>
+
+<%= render :partial => "/shared/content_page" %>

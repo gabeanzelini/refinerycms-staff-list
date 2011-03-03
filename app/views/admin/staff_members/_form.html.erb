@@ -1,0 +1,41 @@
+<%= form_for [:admin, @staff_member] do |f| %>
+  <%= render :partial => "/shared/admin/error_messages",
+             :locals => {
+               :object => @staff_member,
+               :include_object_name => true
+             } %>
+
+  <div class='field'>
+    <%= f.label :category %>
+    <%= f.text_field :category, :class => "larger widest" %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :name %>
+    <%= f.text_field :name, :class => "larger widest" %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :title %>
+    <%= f.datetime_select :title %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :bio %>
+    <%= f.text_area :bio, :rows => "20", :class => "wymeditor widest" %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :image %>
+    <%= render :partial => "/shared/admin/image_picker", :locals => {:f => f, :field => :image_id, :image => @staff_member.image } %>
+  </div>
+
+  <%= render :partial => "/shared/admin/form_actions",
+             :locals => {
+               :f => f,
+               :continue_editing => true,
+               :delete_title => t('admin.staff_members.staff_member.delete'),
+               :delete_confirmation => t('shared.admin.delete.message', :title => @staff_member.name)
+             } %>
+
+<% end %>
