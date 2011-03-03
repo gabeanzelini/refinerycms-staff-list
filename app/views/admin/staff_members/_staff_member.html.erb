@@ -2,13 +2,10 @@
   <span class='title'>
     <%= staff_member.name %>
     <span class="preview">
-      <%= l(staff_member.title) %>
+      <%= staff_member.title %>
     </span>
   </span>
   <span class='actions'>
-    <%= link_to refinery_icon_tag('application_go.png'), staff_member_url(staff_member),
-                :title => t('.view_live_html'),
-                :target => "_blank" %>
     <%= link_to refinery_icon_tag('application_edit.png'), edit_admin_staff_member_path(staff_member),
                 :title => t('.edit') %>
     <%= link_to refinery_icon_tag('delete.png'), admin_staff_member_path(staff_member),

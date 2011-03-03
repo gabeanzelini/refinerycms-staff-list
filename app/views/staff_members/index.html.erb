@@ -1,23 +1,31 @@
 <% content_for :body_content_title do %>
-  <%= t('plugins.refinerycms_staff_lists.title') %>
+  <%= t('plugins.refinerycms_staff_list.title') %>
 <% end %>
-
 <% content_for :body_content_left do %>
-  <%= @page[:body] if @staff_members.offset == 0 %>
-
+    <ul>
+        <% StaffMember.categories.each do |cat| %>
+            <li><%= link_to cat, staff_member_path(:id => cat.underscore)%></li>
+        <% end %>
+    </ul>
+<% end %>
+<% content_for :body_content_right do %>
   <% if @staff_members.any? %>
-    <% @staff_members.each do |item| %>
+      <% 
+          @staff_members.sort_by(&:category).each do |item| 
+            if @category.nil? or @category != item.category
+                @category = item.category
+      %>
+      <h2 id="<%= @category.underscore %>"><%= item.category %></h2>
+          <% end %>
       <article class="staff_member_truncated">
-      <%= image_tag item.image.thumbnail('175x175').url %>
+      <%= image_tag item.image.thumbnail('175x175').url if item.image %>
         <h3><%= item.name %></h3>
         <p>
           <small><%= item.title %></small>
         </p>
-        <%= item.bio %>
+        <%= raw item.bio %>
       </article>
     <% end %>
-
-    <%= will_paginate(@staff_members) %>
   <% else %>
     <p><em><%= t('.no_items_yet') %></em></p>
   <% end %>

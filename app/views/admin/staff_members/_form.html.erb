@@ -7,7 +7,7 @@
 
   <div class='field'>
     <%= f.label :category %>
-    <%= f.text_field :category, :class => "larger widest" %>
+    <%= f.select :category, ['Hospital Administration','Board of Commissioners', 'Physicians'] %>
   </div>
 
   <div class='field'>
@@ -17,7 +17,7 @@
 
   <div class='field'>
     <%= f.label :title %>
-    <%= f.datetime_select :title %>
+    <%= f.text_field :title, :class => "larger widest" %>
   </div>
 
   <div class='field'>

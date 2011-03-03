@@ -9,6 +9,12 @@ class StaffMember < ActiveRecord::Base
 
   default_scope :order => "name DESC"
 
+  scope :by_category, lambda{|cat| where('category like ?',cat)}
+
+  def self.categories
+    self.all.map(&:category).sort.uniq
+  end
+
   def self.per_page
     20
   end

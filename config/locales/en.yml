@@ -1,6 +1,6 @@
 en:
   plugins:
-    refinerycms_staff_lists:
+    refinerycms_staff_list:
       title: Staff List
       description: Provides a simple staff member section
   admin:
