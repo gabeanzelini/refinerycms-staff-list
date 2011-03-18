@@ -17,14 +17,15 @@
       %>
       <h2 id="<%= @category.underscore %>"><%= item.category %></h2>
           <% end %>
-      <article class="staff_member_truncated">
-      <%= image_tag item.image.thumbnail('175x175').url if item.image %>
-        <h3><%= item.name %></h3>
-        <p>
-          <small><%= item.title %></small>
-        </p>
-        <%= raw item.bio %>
-      </article>
+      <div class="staff_member_truncated">
+        <div class="mug">
+          <%= image_tag item.image.thumbnail('175x175').url if item.image %>
+        </div>    
+        <div class="desc">
+          <h3><%= item.name %><small><%= item.title %></small></h3>
+          <%= raw item.bio %>
+        </div>
+      </div>
     <% end %>
   <% else %>
     <p><em><%= t('.no_items_yet') %></em></p>
