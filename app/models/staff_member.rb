@@ -7,7 +7,7 @@ class StaffMember < ActiveRecord::Base
 
   acts_as_indexed :fields => [:name, :category]
 
-  default_scope :order => "name DESC"
+  default_scope :order => "name ASC"
 
   scope :by_category, lambda{|cat| where('category like ?',cat)}
 
