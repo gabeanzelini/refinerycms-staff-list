@@ -15,10 +15,19 @@ protected
 
   def find_staff_members
     if params[:id]
-      @staff_members = StaffMember.by_category(params[:id]).all
+      @catalog = catalog StaffMember.by_category(params[:id]).all
     else
-      @staff_members = StaffMember.all
+      @catalog = catalog StaffMember.all
     end
+  end
+
+  def catalog(staff_members)
+    catelog = {}
+    staff_members.each do |staff_member|
+      catelog[staff_member.category] ||= []
+      catelog[staff_member.catelog] << staff_member
+    end
+    catelog 
   end
 
   def find_page

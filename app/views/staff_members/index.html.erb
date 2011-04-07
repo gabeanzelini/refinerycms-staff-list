@@ -9,23 +9,21 @@
     </ul>
 <% end %>
 <% content_for :body_content_right do %>
-  <% if @staff_members.any? %>
-      <% 
-          @staff_members.sort_by(&:category).each do |item| 
-            if @category.nil? or @category != item.category
-                @category = item.category
-      %>
+  <% if @catalog.any? %>
+    <% 
+      @catalog.keys.each do |category|
+    %>
       <h2 id="<%= @category.underscore %>"><%= item.category %></h2>
-          <% end %>
-      <div class="staff_member_truncated">
-        <div class="mug">
-          <%= image_tag item.image.thumbnail('175x175').url if item.image %>
-        </div>    
-        <div class="desc">
-          <h3><%= item.name %><small><%= item.title %></small></h3>
-          <%= raw item.bio %>
+      <% @catelog[category].each do |item||
+        <div class="staff_member_truncated">
+          <div class="mug">
+            <%= image_tag item.image.thumbnail('175x175').url if item.image %>
+          </div>    
+          <div class="desc">
+            <h3><%= item.name %><small><%= item.title %></small></h3>
+            <%= raw item.bio %>
+          </div>
         </div>
-      </div>
     <% end %>
   <% else %>
     <p><em><%= t('.no_items_yet') %></em></p>
