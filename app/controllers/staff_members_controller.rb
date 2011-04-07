@@ -27,7 +27,7 @@ protected
       catalog[staff_member.category] ||= []
       catalog[staff_member.category] << staff_member
     end
-    catelog 
+    catalog 
   end
 
   def find_page
