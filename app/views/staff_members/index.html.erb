@@ -8,11 +8,12 @@
         <% end %>
     </ul>
 <% end %>
+
 <% content_for :body_content_right do %>
   <% if @catalog.any? %>
     <% @catalog.keys.each do |category| %>
       <h2 id="<%= category.underscore %>"><%= category %></h2>
-      <% @catalog[category].each do |item|
+      <% @catalog[category].each do |item| %>
         <div class="staff_member_truncated">
           <div class="mug">
             <%= image_tag item.image.thumbnail('175x175').url if item.image %>
@@ -23,7 +24,7 @@
           </div>
         </div>
       <% end %>
-    <% end %>>
+    <% end %>
   <% else %>
     <p><em><%= t('.no_items_yet') %></em></p>
   <% end %>
