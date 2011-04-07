@@ -14,7 +14,7 @@
       @catalog.keys.each do |category|
     %>
       <h2 id="<%= @category.underscore %>"><%= item.category %></h2>
-      <% @catelog[category].each do |item||
+      <% @catelog[category].each do |item|
         <div class="staff_member_truncated">
           <div class="mug">
             <%= image_tag item.image.thumbnail('175x175').url if item.image %>
