@@ -10,11 +10,9 @@
 <% end %>
 <% content_for :body_content_right do %>
   <% if @catalog.any? %>
-    <% 
-      @catalog.keys.each do |category|
-    %>
-      <h2 id="<%= @category.underscore %>"><%= item.category %></h2>
-      <% @catelog[category].each do |item|
+    <% @catalog.keys.each do |category| %>
+      <h2 id="<%= category.underscore %>"><%= category %></h2>
+      <% @catalog[category].each do |item|
         <div class="staff_member_truncated">
           <div class="mug">
             <%= image_tag item.image.thumbnail('175x175').url if item.image %>
@@ -24,7 +22,8 @@
             <%= raw item.bio %>
           </div>
         </div>
-    <% end %>
+      <% end %>
+    <% end %>>
   <% else %>
     <p><em><%= t('.no_items_yet') %></em></p>
   <% end %>
