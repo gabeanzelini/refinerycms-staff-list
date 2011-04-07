@@ -22,10 +22,10 @@ protected
   end
 
   def catalog(staff_members)
-    catelog = {}
+    catalog = {}
     staff_members.each do |staff_member|
-      catelog[staff_member.category] ||= []
-      catelog[staff_member.catelog] << staff_member
+      catalog[staff_member.category] ||= []
+      catalog[staff_member.category] << staff_member
     end
     catelog 
   end
