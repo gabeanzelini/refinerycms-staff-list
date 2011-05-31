@@ -19,7 +19,7 @@
             <%= image_tag item.image.thumbnail('175x175').url if item.image %>
           </div>    
           <div class="desc">
-            <h3><%= item.name %><small><%= item.title %></small></h3>
+            <h3><%= item.first_name %> <%= item.last_name %><small><%= item.title %></small></h3>
             <%= raw item.bio %>
           </div>
         </div>

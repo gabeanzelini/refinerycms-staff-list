@@ -15,7 +15,4 @@ class StaffMember < ActiveRecord::Base
     20
   end
 
-  def name
-    "#{first_name} #{last_name}"
-  end
 end
