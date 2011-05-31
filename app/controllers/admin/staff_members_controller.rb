@@ -1,5 +1,5 @@
 class Admin::StaffMembersController < Admin::BaseController
 
-  crudify :staff_member, :order => "name DESC", :title_attribute => :name
+  crudify :staff_member, :order => "last_name ASC, first_name ASC", :title_attribute => :last_name
 
 end
