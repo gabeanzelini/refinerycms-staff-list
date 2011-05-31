@@ -1,13 +1,9 @@
 class StaffMember < ActiveRecord::Base
   belongs_to :image, :class_name => 'Image'
 
-  validates_presence_of :name, :bio, :title, :category
+  validates_presence_of :last_name, :first_name, :bio, :title, :category
 
-  has_friendly_id :name, :use_slug => true
-
-  acts_as_indexed :fields => [:name, :category]
-
-  default_scope :order => "name ASC"
+  default_scope :order => "last_name ASC, first_name ASC"
 
   scope :by_category, lambda{|cat| where('category like ?',cat)}
 
@@ -19,4 +15,7 @@ class StaffMember < ActiveRecord::Base
     20
   end
 
+  def name
+    "#{first_name} #{last_name}"
+  end
 end

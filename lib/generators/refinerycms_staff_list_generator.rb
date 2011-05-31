@@ -5,7 +5,7 @@ class RefinerycmsStaffListGenerator < Rails::Generators::NamedBase
 
   source_root File.expand_path('../refinerycms_staff_list/templates/', __FILE__)
   argument :name, :type => :string, :default => 'staff_member', :banner => ''
-  argument :attributes, :type => :array, :default => ["name:string", "title:string", "bio:text","category:string", "image_id:integer"]
+  argument :attributes, :type => :array, :default => ["last_name:string", "first_name:string", "title:string", "bio:text","category:string", "image_id:integer"]
 
   def generate
     # seed file
