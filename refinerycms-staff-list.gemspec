@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.authors           = %w(Gabe Anzelini)
   s.require_paths     = %w(lib)
 
-  s.add_dependency    'refinerycms', '~> 0.9.9'
+  s.add_dependency    'refinerycms', '~> 1.0.8'
 
   s.files             = [
     'app',
