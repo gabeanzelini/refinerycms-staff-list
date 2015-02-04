@@ -1,7 +1,7 @@
 class StaffMember < ActiveRecord::Base
   belongs_to :image, :class_name => 'Image'
 
-  validates_presence_of :last_name, :first_name, :bio, :title, :category
+  validates_presence_of :last_name, :first_name, :title, :category
 
   default_scope :order => "last_name ASC, first_name ASC"
 
